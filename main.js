@@ -180,9 +180,9 @@ function handleWishList(event) {
 }
 //navigation eventlisteners
 menEl.addEventListener("click", filterMen);
-womenEl.addEventListener("click", filterMen);
-jewelryEl.addEventListener("click", filterMen);
-electronicsEl.addEventListener("click", filterMen);
+womenEl.addEventListener("click", filterWomen);
+jewelryEl.addEventListener("click", filterJewelery);
+electronicsEl.addEventListener("click", filterElectronics);
 
 // navigation eventhandlers
 function filterMen(e) {
@@ -199,4 +199,52 @@ function filterMen(e) {
     menuElement.append(menFilter);
   });
   console.log(menFilter);
+}
+
+function filterWomen(e) {
+  const womenFilter = products.filter((item, index) => {
+    if (item.category === "women's clothing") {
+      return item;
+    } else {
+      return null;
+    }
+  });
+  menuElement.innerHTML = "";
+  womenFilter.forEach((item, index) => {
+    const womenFilter = createProduct(item);
+    menuElement.append(womenFilter);
+  });
+  console.log(womenFilter);
+}
+
+function filterJewelery(e) {
+  const jeweleryFilter = products.filter((item, index) => {
+    if (item.category === "jewelery") {
+      return item;
+    } else {
+      return null;
+    }
+  });
+  menuElement.innerHTML = "";
+  jeweleryFilter.forEach((item, index) => {
+    const jeweleryFilter = createProduct(item);
+    menuElement.append(jeweleryFilter);
+  });
+  console.log(jeweleryFilter);
+}
+
+function filterElectronics(e) {
+  const electronicsFilter = products.filter((item, index) => {
+    if (item.category === "electronics") {
+      return item;
+    } else {
+      return null;
+    }
+  });
+  menuElement.innerHTML = "";
+  electronicsFilter.forEach((item, index) => {
+    const electronicsFilter = createProduct(item);
+    menuElement.append(electronicsFilter);
+  });
+  console.log(electronicsFilter);
 }
